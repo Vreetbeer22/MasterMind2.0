@@ -12,7 +12,7 @@ public class MasterMind {
 		final String punt = " - ";
 		
 		final String rood = "ro";
-		final String blauw = "bl";
+		final String blauw = "bl"; 
 		final String groen = "gr";
 		final String geel = "ge";
 		final String paars = "pa";
