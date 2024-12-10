@@ -36,7 +36,22 @@ public class MasterMind {
 		System.out.println("code "+ronde+" vul je code ("+code.length+" kleuren) in:");
 		String[] codebreaker = new String[code.length];
 			for (int i = 0; i < code.length; i++) {
-				codebreaker[i] = sc.next();
+				Boolean geldigekleur = false;
+				while (!geldigekleur) {
+					System.out.println("Vul hier kleur "+(i+1)+" in");
+					codebreaker[i] = sc.next();
+					for (String kleur : kleuren) {
+			            if (kleur.equals(codebreaker[i])) {
+			                geldigekleur = true;
+			                break;
+			            }
+			        }
+					if (!geldigekleur) {
+			            System.out.println("Ongeldige invoer. Kies een kleur uit: ro, bl, gr, ge, pa, or.");
+			        } else {
+			            codebreaker[i] = codebreaker[i];
+			        }
+				}
 			}
 		
 			String[] resultaat = new String[code.length];
