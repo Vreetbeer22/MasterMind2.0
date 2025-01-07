@@ -36,7 +36,16 @@ public class MasterMindTest {
 					case 1:
 						System.out.println("\nDe regels:");
 						System.out.println("Het doel van het spel is om de code te kraken.");
-						
+						System.out.println("Hier heb je 10 rondes voor.");
+						System.out.println("Er zijn verschillende kleuren die je kan gebruiken in je code.");
+						System.out.println("De standaart kleuren zijn:");
+						System.out.println("(rood)-ro, (blauw)-bl, (groen)-gr, (geel)-ge, (paars)-pa en (oranje)-or.");
+						System.out.println("Je kan de kleuren nog aanpassen als je wilt");
+						System.out.println("De code is "+codelengte+" kleuren lang dus je vult elke ronde "+codelengte+" kleuren in");
+						System.out.println("Als je een kleur op de goede plek hebt staan krijg je de kleur wit terug");
+						System.out.println("Als de kleur niet goed maar wel in de code zit krijg je de kleur zwart terug");
+						System.out.println("als de kleur helemaal niet in de code zit krijg je ' - ' terug");
+						System.out.println("Veel succes!! \n");
 						break;
 						
 					case 2:
