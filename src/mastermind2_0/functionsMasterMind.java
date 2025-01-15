@@ -11,13 +11,45 @@ public class functionsMasterMind extends MasterMind {
 	final String zwart = "zw";
 	final String punt = " - ";
 	int codelengte = 4;
-	final ArrayList<String> kleuren = new ArrayList<String>(Arrays.asList("ro","bl","ge","gr","pa","or"));
+	ArrayList<String> kleuren = new ArrayList<String>(Arrays.asList("ro","bl","ge","gr","pa","or"));
 	Random rnd = new Random();
 	Scanner sc = new Scanner(System.in);
 	String[] code = new String[codelengte];
 	int ronde = 1;
 	String[] codebreaker = new String[code.length];
 	int codegoed = 0;
+	
+	
+	public int codelengteaanpassen(int codelengte) {
+		System.out.println("\nWat is de lengte die je de code wil maken?");
+		codelengte = sc.nextInt();
+		System.out.println("Je code is nu "+codelengte+" kleuren lang");
+		return codelengte;
+	}
+	
+	public void kleurenaangeven() {
+		System.out.println("\nDe kleuren die je nu gebruikt zijn:");
+		for (int i = 0; i < kleuren.size(); i++) {
+			System.out.print(kleuren.get(i)+", ");
+		}
+	}
+	
+	public void kleurentoevoegen() {
+		System.out.println("\nwelke kleur wil je toevoegen? Gebruik alleen de eerste 2 letters van de kleur.");
+		String nieuwekleur = sc.next();
+		kleuren.add(nieuwekleur);
+		System.out.println(nieuwekleur+" is toegevoegd aan je kleuren!");
+	}
+	
+	public void kleurenweghalen() {
+		System.out.println("\nwelke kleur wil je verwijderen? kies uit:");
+		for (String kle : kleuren) {
+			System.out.print(kle + ", ");
+		}
+		String kleurweg = sc.next();
+		kleuren.remove(kleurweg);
+		System.out.println(kleurweg+" is uit je kleuren weggehaald.");
+	}
 	
 	public String[] codemaker() {
 		for (int i =0; i < code.length; i++) {

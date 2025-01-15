@@ -1,8 +1,5 @@
 package mastermind2_0;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class MasterMind {
@@ -14,8 +11,6 @@ public class MasterMind {
 		int codelengte = 4;
 		String[] code = new String[codelengte];
 		
-		final ArrayList<String> kleuren = new ArrayList<String>(Arrays.asList("ro","bl","ge","gr","pa","or"));
-		Random rnd = new Random();
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Welkom bij mastermind!");
@@ -61,9 +56,10 @@ public class MasterMind {
 							if (codekeuze == 1||codekeuze == 2) {
 								switch(codekeuze) {
 									case 1:
-										System.out.println("\nWat is de lengte die je de code wil maken?");
-										codelengte = sc.nextInt();
-										System.out.println("Je code is nu "+codelengte+" kleuren lang");
+//										System.out.println("\nWat is de lengte die je de code wil maken?");
+//										codelengte = sc.nextInt();
+//										System.out.println("Je code is nu "+codelengte+" kleuren lang");
+										codelengte = mn.codelengteaanpassen(codelengte);
 										break;
 									case 2:
 										System.out.println("\nPrima de code is nu "+codelengte+" kleuren lang");
@@ -84,10 +80,7 @@ public class MasterMind {
 					case 3:
 						boolean kleurenaanpassen = false;
 						while(!kleurenaanpassen) {
-							System.out.println("\nDe kleuren die je nu gebruikt zijn:");
-							for (int i = 0; i < kleuren.size(); i++) {
-								System.out.print(kleuren.get(i)+", ");
-							}
+							mn.kleurenaangeven();
 							System.out.println("\nwat wil je nu doen?");
 							System.out.println("1 - Kleuren toevoegen.");
 							System.out.println("2 - Kleuren verwijderen.");
@@ -97,27 +90,17 @@ public class MasterMind {
 							if (kleurenkeuze == 1||kleurenkeuze == 2||kleurenkeuze == 3) {
 								switch(kleurenkeuze) {
 									case 1:
-										System.out.println("\nwelke kleur wil je toevoegen? Gebruik alleen de eerste 2 letters van de kleur.");
-										String nieuwekleur = sc.next();
-										kleuren.add(nieuwekleur);
-										System.out.println(nieuwekleur+" is toegevoegd aan je kleuren!");
+										mn.kleurentoevoegen();
 										break;
 										
 									case 2:
-										System.out.println("\nwelke kleur wil je verwijderen? kies uit:");
-										for (String kle : kleuren) {
-											System.out.print(kle + ", ");
-										}
-										String kleurweg = sc.next();
-										kleuren.remove(kleurweg);
-										System.out.println(kleurweg+" is uit je kleuren weggehaald.");
+										mn.kleurenweghalen();
 										break;
 										
 									case 3:
 										System.out.println("\nOke de kleuren zijn goed zo!\n");
 										kleurenaanpassen = true;
-										break;
-										
+										break;		
 								}
 							}
 							else {
@@ -128,7 +111,6 @@ public class MasterMind {
 								System.out.println("\nFout: Voer een geldig getal in.");
 								sc.nextLine();
 							}
-
 						}
 						break;
 						
@@ -137,7 +119,6 @@ public class MasterMind {
 						System.out.println("Succes!");
 						start = true;
 						break;
-						
 				}
 			}
 			else {
@@ -148,7 +129,6 @@ public class MasterMind {
 				System.out.println("\nFout: Voer een geldig getal in.");
 				sc.nextLine();
 			}
-			
 		}
 
 		code = mn.codemaker();
@@ -161,9 +141,7 @@ public class MasterMind {
 	        
 			mn.overwinningchecken(ronde);
 
-			
 			}
 			sc.close();	
-		
 	}
 }
