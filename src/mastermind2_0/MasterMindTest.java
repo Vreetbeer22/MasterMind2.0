@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class MasterMindTest {
 
 	public static void main(String[] args) {
+		functionsMasterMind mn = new functionsMasterMind();
 		
 		final String wit = "wi";
 		final String zwart = "zw";
@@ -30,6 +31,7 @@ public class MasterMindTest {
 			System.out.println("3 - De kleuren zien.");
 			System.out.println("4 - Het spel spelen!");
 			System.out.println("Maak je keuze:");
+			try {
 			int keuze = sc.nextInt();
 			if (keuze == 1||keuze == 2||keuze == 3||keuze == 4) {
 				switch(keuze) {
@@ -55,7 +57,9 @@ public class MasterMindTest {
 							System.out.println("wat wil je nu doen?");
 							System.out.println("1 - De lengte van je code aanpassen.");
 							System.out.println("2 - De lengte van je code zo houden.");
-							int codekeuze = sc.nextInt();
+							
+							try {
+								int codekeuze = sc.nextInt();
 							if (codekeuze == 1||codekeuze == 2) {
 								switch(codekeuze) {
 									case 1:
@@ -72,6 +76,11 @@ public class MasterMindTest {
 							else {
 								System.out.println("\ndit is niet een van de opties kies iets anders");
 							}
+							}
+							catch (Exception ex) {
+								System.out.println("\nFout: Voer een geldig getal in.");
+								sc.nextLine();
+							}
 						}
 						break;
 					case 3:
@@ -85,6 +94,7 @@ public class MasterMindTest {
 							System.out.println("1 - Kleuren toevoegen.");
 							System.out.println("2 - Kleuren verwijderen.");
 							System.out.println("3 - De kleuren zijn goed zo!");
+							try {
 							int kleurenkeuze = sc.nextInt();
 							if (kleurenkeuze == 1||kleurenkeuze == 2||kleurenkeuze == 3) {
 								switch(kleurenkeuze) {
@@ -112,6 +122,15 @@ public class MasterMindTest {
 										
 								}
 							}
+							else {
+								System.out.println("\ndit is niet een van de opties kies iets anders");
+							}
+							}
+							catch (Exception ex) {
+								System.out.println("\nFout: Voer een geldig getal in.");
+								sc.nextLine();
+							}
+
 						}
 						break;
 						
@@ -125,6 +144,11 @@ public class MasterMindTest {
 			}
 			else {
 				System.out.println("dit is niet een van de opties kies iets anders");
+			}
+			}
+			catch (Exception ex) {
+				System.out.println("\nFout: Voer een geldig getal in.");
+				sc.nextLine();
 			}
 			
 		}
@@ -158,6 +182,7 @@ public class MasterMindTest {
 				        }
 					}
 				}
+			
 			
 				String[] resultaat = new String[code.length];
 				boolean[] codegebruikt = new boolean[code.length];	// Om te markeren welke codeposities al gebruikt zijn	
